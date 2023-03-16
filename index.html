@@ -5,19 +5,31 @@
 
     <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
 
-    <title>Future Tools</title>
-
+    <title>Assignment 1</title>
 </head>
 <body>
+    <div id="happy">
+    </div>
+    <script>
 
-<div id="happy">
-
-</div>
-<script>
-    var converter = new showdown.Converter(),
-    // ok se we need to get this from github....
-    text      = '## hello, markdown!',
-    html      = converter.makeHtml(text);
-    document.getElementById("happy").innerHTML+= html
-</script>
+    function readJson() {
+        var xhttp;
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById('output').innerHTML = this.responseText;
+        }
+        };
+        // this could be cool later - remember to add state back into the function argument...
+        // xhttp.open("GET", 'includes/read.php?state='+state, true);
+        xhttp.open("GET", 'content/main.md', true);
+        xhttp.send();  
+	};
+        var converter = new showdown.Converter(),
+        // ok se we need to get this from github....
+        text      = readJson(),
+        html      = converter.makeHtml(text);
+        document.getElementById("happy").innerHTML+= html
+    </script>
 </body>
