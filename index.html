@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
+
+    <title>Future Tools</title>
+
+</head>
+<body>
+
+<div id="happy">
+
+</div>
+<script>
+    var converter = new showdown.Converter(),
+    // ok se we need to get this from github....
+    text      = '## hello, markdown!',
+    html      = converter.makeHtml(text);
+    document.getElementById("happy").innerHTML+= html
+</script>
+</body>
